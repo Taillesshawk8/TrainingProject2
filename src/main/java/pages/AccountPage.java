@@ -1,21 +1,32 @@
-package applications.xyzBank.pages;
+package pages;
 
 
+import Roman.Roman;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import selenium.SeleniumWrapper;
+import selenium.AbstractBankingPage;
 
-public class AccountPage extends SeleniumWrapper {
+public class AccountPage extends AbstractBankingPage {
 
     private By makeDepositBtn = By.xpath("//button[contains(text(),'Deposit')]");
     private By depositAmount = By.xpath("//label[text()='Amount to be Deposited :']/following-sibling::input");
     private By depositBtn = By.xpath("//button[text()='Deposit']");
     private By depositSuccess = By.xpath("//span[text()='Deposit Successful']");
 
-    public AccountPage(WebDriver driver)
+    public AccountPage(Roman roman)
     {
-        super(driver);
+        super(roman);
+    }
+
+    @Override
+    protected String get_uri() {
+        return null;
+    }
+
+    @Override
+    public boolean waitForDisplayed() {
+        return false;
     }
 
     public void makeDeposit(int amount)

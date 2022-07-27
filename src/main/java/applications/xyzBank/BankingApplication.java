@@ -1,9 +1,9 @@
 package applications.xyzBank;
 
-import applications.xyzBank.pages.AccountPage;
-import applications.xyzBank.pages.LoginPage;
-import applications.xyzBank.pages.TransactionsPage;
-import org.openqa.selenium.WebDriver;
+import Roman.Roman;
+import pages.AccountPage;
+import pages.LoginPage;
+import pages.TransactionsPage;
 
 public class BankingApplication {
 
@@ -11,10 +11,10 @@ public class BankingApplication {
     public AccountPage accountPage;
     public TransactionsPage transactionsPage;
 
-    public BankingApplication(WebDriver driver)
+    public BankingApplication(Roman roman)
     {
-        loginPage = new LoginPage(driver);
-        accountPage = new AccountPage(driver);
+        loginPage = new LoginPage(roman);
+        accountPage = new AccountPage(roman);
     }
 
 }

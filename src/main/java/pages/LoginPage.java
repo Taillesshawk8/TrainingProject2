@@ -1,15 +1,26 @@
-package applications.xyzBank.pages;
+package pages;
 
+import Roman.Roman;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import selenium.SeleniumWrapper;
+import selenium.AbstractBankingPage;
 
-public class LoginPage extends SeleniumWrapper{
+public class LoginPage extends AbstractBankingPage {
 
-    public LoginPage(WebDriver driver)
+    public LoginPage(Roman roman)
     {
-        super(driver);
+        super(roman);
 
+    }
+
+    @Override
+    protected String get_uri() {
+        return null;
+    }
+
+    @Override
+    public boolean waitForDisplayed() {
+        return false;
     }
 
     private By customerLoginBtn = By.xpath("//button[text()='Customer Login']");
