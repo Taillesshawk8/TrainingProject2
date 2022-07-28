@@ -1,9 +1,9 @@
 package applications.xyzBank;
 
 import Roman.Roman;
-import pages.AccountPage;
-import pages.LoginPage;
-import pages.TransactionsPage;
+import applications.xyzBank.pages.AccountPage;
+import applications.xyzBank.pages.LoginPage;
+import applications.xyzBank.pages.TransactionsPage;
 
 public class BankingApplication {
 

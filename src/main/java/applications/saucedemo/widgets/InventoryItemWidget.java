@@ -6,15 +6,15 @@ import selenium.AbstractWidget;
 
 public class InventoryItemWidget extends AbstractWidget {
 
-    private By addToCartBtn = By.xpath(".//button[text()='Add to cart']");
-    private By itemPrice = By.xpath(".//div[@class='inventory_item_price']");
+    private final By addToCartBtn = By.xpath(".//button[text()='Add to cart']");
+    private final By itemPrice = By.xpath(".//div[@class='inventory_item_price']");
 
 
     public InventoryItemWidget(Roman roman, String itemName) {
         super(roman);
         this.itemName = itemName;
     }
-    private String itemName;
+    private final String itemName;
 
     public void addToCart(){
         click(addToCartBtn);

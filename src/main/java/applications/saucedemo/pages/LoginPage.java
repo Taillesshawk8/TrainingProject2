@@ -7,9 +7,9 @@ import selenium.AbstractBankingPage;
 
 public class LoginPage extends AbstractBankingPage {
 
-    private By usernameField = By.id("user-name");
-    private By passwordField = By.id("password");
-    private By loginBtn = By.id("login-button");
+    private final By usernameField = By.id("user-name");
+    private final By passwordField = By.id("password");
+    private final By loginBtn = By.id("login-button");
 
     public LoginPage(Roman roman) {
         super(roman);
