@@ -2,10 +2,9 @@ package applications.xyzBank.pages;
 
 import Roman.Roman;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import selenium.AbstractBankingPage;
+import selenium.Selenium;
 
-public class LoginPage extends AbstractBankingPage {
+public class LoginPage extends Selenium {
 
     public LoginPage(Roman roman)
     {

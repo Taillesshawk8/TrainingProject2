@@ -3,8 +3,8 @@ package applications.tricentis.pages;
 import Roman.Roman;
 import selenium.Selenium;
 
-public class HomePage extends Selenium {
-    public HomePage(Roman roman) {
+public class CartPage extends Selenium {
+    public CartPage(Roman roman) {
         super(roman);
     }
 

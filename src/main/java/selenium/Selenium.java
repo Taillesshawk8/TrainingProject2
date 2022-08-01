@@ -4,9 +4,9 @@ import Roman.Roman;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
-public abstract class AbstractBankingPage extends AbstractPage{
+public abstract class Selenium extends AbstractPage{
 
-    public AbstractBankingPage(Roman roman)
+    public Selenium(Roman roman)
     {
         super(roman);
     }

@@ -4,10 +4,9 @@ package applications.xyzBank.pages;
 import Roman.Roman;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import selenium.AbstractBankingPage;
+import selenium.Selenium;
 
-public class AccountPage extends AbstractBankingPage {
+public class AccountPage extends Selenium {
 
     private final By makeDepositBtn = By.xpath("//button[contains(text(),'Deposit')]");
     private final By depositAmount = By.xpath("//label[text()='Amount to be Deposited :']/following-sibling::input");

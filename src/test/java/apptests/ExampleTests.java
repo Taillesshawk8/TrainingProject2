@@ -1,4 +1,4 @@
-package unittests;
+package apptests;
 
 import Roman.RomanBase;
 import applications.saucedemo.SauceDemoApplication;

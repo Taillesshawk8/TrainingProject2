@@ -3,9 +3,9 @@ package applications.saucedemo.pages;
 import Roman.Roman;
 import applications.saucedemo.models.Credential;
 import org.openqa.selenium.By;
-import selenium.AbstractBankingPage;
+import selenium.Selenium;
 
-public class LoginPage extends AbstractBankingPage {
+public class LoginPage extends Selenium {
 
     private final By usernameField = By.id("user-name");
     private final By passwordField = By.id("password");
