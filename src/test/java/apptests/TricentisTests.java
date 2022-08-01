@@ -15,9 +15,24 @@ public class TricentisTests extends RomanBase {
     }
 
     @Test
-    public void tricentis(){
+    public void tricentisAddToCart(){
         TricentisApplication app = new TricentisApplication(roman());
         app.loginPage.login();
+        app.storePage.addComAndIntToCart();
+        Assertions.assertFalse(app.cartPage.checkCart());
+        System.out.println("Successfully added item to cart.");
+    }
 
+    @Test
+    public void tricentisClearCart(){
+        TricentisApplication app = new TricentisApplication(roman());
+        app.loginPage.login();
+        if (app.cartPage.checkCart()) {
+            System.out.println("The cart is already empty.");
+        } else {
+            app.cartPage.removeItem();
+            Assertions.assertTrue(app.cartPage.checkCart());
+            System.out.println("Successfully removed item, the cart is now empty.");
+        }
     }
 }
