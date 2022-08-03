@@ -19,14 +19,13 @@ public class CartPage extends Selenium {
         return false;
     }
 
-    private final By cartButton = By.xpath("//span[text()=\"Shopping cart\"]");
-    private final By cartQty = By.xpath("//span[@class=\"cart-qty\"]");
-    private final By cartEmpty = By.xpath("//div[contains(text(),\"empty\")]");
-    private final By removeButton = By.xpath("//input[@name=\"removefromcart\"]");
-    private final By updateButton = By.xpath("//input[@name=\"updatecart\"]");
+
+    private final By cartQty = By.xpath("//span[@class='cart-qty']");
+    private final By cartEmpty = By.xpath("//div[contains(text(),'empty')]");
+    private final By removeBtn = By.xpath("//input[@name='removefromcart']");
+    private final By updateBtn = By.xpath("//input[@name='updatecart']");
 
     public boolean checkCart(){
-        click(cartButton);
         try {
             return _driver.findElement(cartEmpty).isDisplayed();
         } catch (Exception e) {
@@ -35,8 +34,7 @@ public class CartPage extends Selenium {
     }
 
     public void removeItem(){
-        click(cartButton);
-        click(removeButton);
-        click(updateButton);
+        click(removeBtn);
+        click(updateBtn);
     }
 }

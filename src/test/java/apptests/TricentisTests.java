@@ -22,6 +22,7 @@ public class TricentisTests extends RomanBase {
         app.loginPage.login(new Credential("titanslayer@gamil.com","Eren-san"));
         app.storePage.clickBooksSidebar();
         app.storePage.addToCart(item);
+        app.storePage.clickCart();
         Assertions.assertFalse(app.cartPage.checkCart());
         System.out.println("Successfully added item to cart.");
     }
@@ -30,6 +31,7 @@ public class TricentisTests extends RomanBase {
     public void tricentisClearCart(){
         TricentisApplication app = new TricentisApplication(roman());
         app.loginPage.login(new Credential("titanslayer@gamil.com","Eren-san"));
+        app.storePage.clickCart();
         while(!app.cartPage.checkCart()){
             app.cartPage.removeItem();
         }Assertions.assertTrue(app.cartPage.checkCart());
