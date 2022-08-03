@@ -17,14 +17,14 @@ public class TricentisTests extends RomanBase {
 
     @Test
     public void tricentisAddToCart(){
-        String item = "Computing and Internet";
+        String item = "Fiction";
         TricentisApplication app = new TricentisApplication(roman());
         app.loginPage.login(new Credential("titanslayer@gamil.com","Eren-san"));
         app.storePage.clickBooksSidebar();
         app.storePage.addToCart(item);
         app.storePage.clickCart();
         Assertions.assertFalse(app.cartPage.checkCart());
-        System.out.println("Successfully added item to cart.");
+        System.out.println("Successfully added '"+item+"' to cart.");
     }
 
     @Test
