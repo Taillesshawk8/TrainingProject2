@@ -1,6 +1,7 @@
 package applications.tricentis.pages;
 
 import Roman.Roman;
+import applications.tricentis.models.Credential;
 import org.openqa.selenium.By;
 import selenium.Selenium;
 
@@ -24,7 +25,7 @@ public class LoginPage extends Selenium {
     private final By passwordField = By.xpath("//input[@id=\"Password\"]");
     private final By submitButton = By.xpath("//input[@value=\"Log in\"]");
 
-    public void login(){
+    public void login(Credential credential){
         navigateTo();
         click(loginButton);
         sendKeys(emailField,"titanslayer@gmail.com");

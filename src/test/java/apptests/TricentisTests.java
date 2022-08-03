@@ -2,6 +2,7 @@ package apptests;
 
 import Roman.RomanBase;
 import applications.tricentis.TricentisApplication;
+import applications.tricentis.models.Credential;
 import org.junit.jupiter.api.*;
 
 import java.util.concurrent.TimeUnit;
@@ -16,9 +17,11 @@ public class TricentisTests extends RomanBase {
 
     @Test
     public void tricentisAddToCart(){
+        String item = "Computing and Internet";
         TricentisApplication app = new TricentisApplication(roman());
-        app.loginPage.login();
-        app.storePage.addComAndIntToCart();
+        app.loginPage.login(new Credential("titanslayer@gamil.com","Eren-san"));
+        app.storePage.clickBooksSidebar();
+        app.storePage.addToCart(item);
         Assertions.assertFalse(app.cartPage.checkCart());
         System.out.println("Successfully added item to cart.");
     }
@@ -26,13 +29,10 @@ public class TricentisTests extends RomanBase {
     @Test
     public void tricentisClearCart(){
         TricentisApplication app = new TricentisApplication(roman());
-        app.loginPage.login();
-        if (app.cartPage.checkCart()) {
-            System.out.println("The cart is already empty.");
-        } else {
+        app.loginPage.login(new Credential("titanslayer@gamil.com","Eren-san"));
+        while(!app.cartPage.checkCart()){
             app.cartPage.removeItem();
-            Assertions.assertTrue(app.cartPage.checkCart());
-            System.out.println("Successfully removed item, the cart is now empty.");
-        }
+        }Assertions.assertTrue(app.cartPage.checkCart());
+        System.out.println("Successfully cleared cart");
     }
 }

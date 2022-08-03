@@ -11,7 +11,7 @@ public class CartPage extends Selenium {
 
     @Override
     protected String get_uri() {
-        return "http://demowebshop.tricentis.com/cart";
+        return null;
     }
 
     @Override
