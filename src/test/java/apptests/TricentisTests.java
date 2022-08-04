@@ -17,14 +17,14 @@ public class TricentisTests extends RomanBase {
 
     @Test
     public void tricentisAddToCart(){
-        String item = "Fiction";
+        String item = "Computing and Internet";
         TricentisApplication app = new TricentisApplication(roman());
         app.loginPage.login(new Credential("titanslayer@gamil.com","Eren-san"));
         app.storePage.clickBooksSidebar();
         app.storePage.addToCart(item);
         app.storePage.clickCart();
-        Assertions.assertFalse(app.cartPage.checkCart());
-        System.out.println("Successfully added '"+item+"' to cart.");
+        Assertions.assertTrue(app.cartPage.isItemThere(item));
+        System.out.println("Added '"+item+"' to cart.");
     }
 
     @Test
@@ -32,9 +32,7 @@ public class TricentisTests extends RomanBase {
         TricentisApplication app = new TricentisApplication(roman());
         app.loginPage.login(new Credential("titanslayer@gamil.com","Eren-san"));
         app.storePage.clickCart();
-        while(!app.cartPage.checkCart()){
-            app.cartPage.removeItem();
-        }Assertions.assertTrue(app.cartPage.checkCart());
-        System.out.println("Successfully cleared cart");
+        app.cartPage.clearCart();
+        Assertions.assertTrue(app.cartPage.isCartEmpty());
     }
 }

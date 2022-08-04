@@ -1,6 +1,7 @@
 package applications.tricentis.pages;
 
 import Roman.Roman;
+import applications.tricentis.widgets.InventoryItem;
 import org.openqa.selenium.By;
 import selenium.Selenium;
 
@@ -25,7 +26,7 @@ public class CartPage extends Selenium {
     private final By removeBtn = By.xpath("//input[@name='removefromcart']");
     private final By updateBtn = By.xpath("//input[@name='updatecart']");
 
-    public boolean checkCart(){
+    public boolean isCartEmpty(){
         try {
             return _driver.findElement(cartEmpty).isDisplayed();
         } catch (Exception e) {
@@ -33,8 +34,20 @@ public class CartPage extends Selenium {
         }
     }
 
-    public void removeItem(){
+    public int cartCount(){
+        var quantity = _driver.findElement(cartQty).getText();
+        return Integer.parseInt(quantity.replace("(","").replace(")",""));
+    }
+
+    public void removeItem(String itemName){
         click(removeBtn);
         click(updateBtn);
+    }
+
+    public void clearCart(){
+        while(cartCount() != 0){
+            click(removeBtn);
+            click(updateBtn);
+        }System.out.println("Cleared cart");
     }
 }
