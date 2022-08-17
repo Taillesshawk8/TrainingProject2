@@ -1,18 +1,17 @@
-package pages;
+package applications.xyzBank.pages;
 
 
 import Roman.Roman;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import selenium.AbstractBankingPage;
+import selenium.Selenium;
 
-public class AccountPage extends AbstractBankingPage {
+public class AccountPage extends Selenium {
 
-    private By makeDepositBtn = By.xpath("//button[contains(text(),'Deposit')]");
-    private By depositAmount = By.xpath("//label[text()='Amount to be Deposited :']/following-sibling::input");
-    private By depositBtn = By.xpath("//button[text()='Deposit']");
-    private By depositSuccess = By.xpath("//span[text()='Deposit Successful']");
+    private final By makeDepositBtn = By.xpath("//button[contains(text(),'Deposit')]");
+    private final By depositAmount = By.xpath("//label[text()='Amount to be Deposited :']/following-sibling::input");
+    private final By depositBtn = By.xpath("//button[text()='Deposit']");
+    private final By depositSuccess = By.xpath("//span[text()='Deposit Successful']");
 
     public AccountPage(Roman roman)
     {
@@ -34,7 +33,7 @@ public class AccountPage extends AbstractBankingPage {
         click(makeDepositBtn);
         sendKeys(depositAmount,amount+"");
         click(depositBtn);
-        Assertions.assertEquals(isDisplayed(depositSuccess), true);
+        Assertions.assertTrue(isDisplayed(depositSuccess));
     }
 
     public void makeWithdrawal()

@@ -5,7 +5,7 @@ import applications.saucedemo.widgets.InventoryItemWidget;
 import selenium.AbstractPage;
 
 public class InventoryPage extends AbstractPage {
-    private Roman roman;
+    private final Roman roman;
 
     public InventoryPage(Roman roman) {
         super(roman);

@@ -1,11 +1,10 @@
-package pages;
+package applications.xyzBank.pages;
 
 import Roman.Roman;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import selenium.AbstractBankingPage;
+import selenium.Selenium;
 
-public class LoginPage extends AbstractBankingPage {
+public class LoginPage extends Selenium {
 
     public LoginPage(Roman roman)
     {
@@ -23,9 +22,9 @@ public class LoginPage extends AbstractBankingPage {
         return false;
     }
 
-    private By customerLoginBtn = By.xpath("//button[text()='Customer Login']");
-    private By customerSelect = By.id("userSelect");
-    private By loginBtn = By.xpath("//button[text()='Login']");
+    private final By customerLoginBtn = By.xpath("//button[text()='Customer Login']");
+    private final By customerSelect = By.id("userSelect");
+    private final By loginBtn = By.xpath("//button[text()='Login']");
 
     public void login(String customerName)
     {
