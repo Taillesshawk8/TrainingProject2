@@ -4,6 +4,7 @@ import Roman.Roman;
 import selenium.Selenium;
 
 public class RegisterPage extends Selenium {
+
     public RegisterPage(Roman roman) {
         super(roman);
     }

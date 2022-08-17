@@ -17,21 +17,23 @@ public class TricentisTests extends RomanBase {
 
     @Test
     public void tricentisAddToCart(){
-        String item = "Computing and Internet";
+        String[] items = {"Computing and Internet","Fiction","Health Book"};
+        String item = "Fiction";
         TricentisApplication app = new TricentisApplication(roman());
         app.loginPage.login(new Credential("titanslayer@gamil.com","Eren-san"));
-        app.storePage.clickBooksSidebar();
-        app.storePage.addToCart(item);
-        app.storePage.clickCart();
-        Assertions.assertTrue(app.cartPage.isItemThere(item));
+        app.storePage.goToBooks();
+        app.storePage.addItemToCart(item);
+        app.storePage.goToCart();
+        Assertions.assertFalse(app.cartPage.isCartEmpty());
         System.out.println("Added '"+item+"' to cart.");
     }
 
-    @Test
+    @AfterEach
     public void tricentisClearCart(){
         TricentisApplication app = new TricentisApplication(roman());
-        app.loginPage.login(new Credential("titanslayer@gamil.com","Eren-san"));
-        app.storePage.clickCart();
+//        app.loginPage.login(new Credential("titanslayer@gamil.com","Eren-san"));
+        app.storePage.navigateTo();
+        app.storePage.goToCart();
         app.cartPage.clearCart();
         Assertions.assertTrue(app.cartPage.isCartEmpty());
     }

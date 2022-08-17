@@ -1,11 +1,11 @@
 package applications.tricentis.pages;
 
 import Roman.Roman;
-import applications.tricentis.widgets.InventoryItem;
 import org.openqa.selenium.By;
 import selenium.Selenium;
 
 public class CartPage extends Selenium {
+
     public CartPage(Roman roman) {
         super(roman);
     }
@@ -19,7 +19,6 @@ public class CartPage extends Selenium {
     public boolean waitForDisplayed() {
         return false;
     }
-
 
     private final By cartQty = By.xpath("//span[@class='cart-qty']");
     private final By cartEmpty = By.xpath("//div[contains(text(),'empty')]");
@@ -42,6 +41,7 @@ public class CartPage extends Selenium {
     public void removeItem(String itemName){
         click(removeBtn);
         click(updateBtn);
+        System.out.println("Removed " + itemName);
     }
 
     public void clearCart(){
